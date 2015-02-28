@@ -2,21 +2,23 @@
 color 0a
 mode con cols=90 lines=25
 :begin
-echo -------------------------¹¤¾ßÊ¹ÓÃËµÃ÷------------------------------
-echo Ê¹ÓÃ·½·¨£ºÊäÈëÏÂÃæ±êÊ¾µÄÒ»¸öÊı×Ö£¬È»ºó°´»Ø³µ¼ü¼´¿É¡£
+echo -------------------------å·¥å…·ä½¿ç”¨è¯´æ˜------------------------------
+echo ä½¿ç”¨æ–¹æ³•ï¼šè¾“å…¥ä¸‹é¢æ ‡ç¤ºçš„ä¸€ä¸ªæ•°å­—ï¼Œç„¶åæŒ‰å›è½¦é”®å³å¯ã€‚
 echo -------------------------------------------------------------------
-echo ÊäÈëÊı×Ö¡¾0¡¿ÍË³ö±¾¹¤¾ß  
-echo ÊäÈëÊı×Ö¡¾1¡¿´ò¿ª¿ØÖÆÃæ°å
-echo ÊäÈëÊı×Ö¡¾2¡¿´ò¿ª¼ÆËãÆ÷
-echo ÊäÈëÊı×Ö¡¾3¡¿´ò¿ª·Å´ó¾µ
-echo ÊäÈëÊı×Ö¡¾4¡¿´ò¿ª½ØÍ¼
-echo ÊäÈëÊı×Ö¡¾5¡¿´ò¿ª×¢²á±í
-echo ÊäÈëÊı×Ö¡¾6¡¿´ò¿ª´ÅÅÌ¹ÜÀí
-echo ÊäÈëÊı×Ö¡¾7¡¿´ò¿ªÏµÍ³·şÎñ
+echo è¾“å…¥æ•°å­—ã€0ã€‘é€€å‡ºæœ¬å·¥å…·  
+echo è¾“å…¥æ•°å­—ã€1ã€‘æ‰“å¼€æ§åˆ¶é¢æ¿
+echo è¾“å…¥æ•°å­—ã€2ã€‘æ‰“å¼€è®¡ç®—å™¨
+echo è¾“å…¥æ•°å­—ã€3ã€‘æ‰“å¼€æ”¾å¤§é•œ
+echo è¾“å…¥æ•°å­—ã€4ã€‘æ‰“å¼€æˆªå›¾
+echo è¾“å…¥æ•°å­—ã€5ã€‘æ‰“å¼€æ³¨å†Œè¡¨
+echo è¾“å…¥æ•°å­—ã€6ã€‘æ‰“å¼€ç£ç›˜ç®¡ç†
+echo è¾“å…¥æ•°å­—ã€7ã€‘æ‰“å¼€ç³»ç»ŸæœåŠ¡
+echo è¾“å…¥æ•°å­—ã€8ã€‘æŸ¥çœ‹ipåœ°å€
+echo è¾“å…¥æ•°å­—ã€9ã€‘æ£€æŸ¥é‚®ç®±åœ°å€çœŸå®æ€§
 echo --------------------------------------------------------------------
-echo °æ±¾1.0.0  2015-02-09  	ÈçÓĞÆäËüĞèÇóÇëÁªÏµ£ºhsuchan@hsuchan.com
+echo ç‰ˆæœ¬1.0.1 æœ€åæ›´æ–°2015-02-28 å¦‚æœ‰å…¶å®ƒéœ€æ±‚è¯·è”ç³»ï¼šhsuchan@hsuchan.com
 echo -------------------------Design by HsuChan--------------------------
-set /p var=ÇëÊäÈë:
+set /p var=è¯·è¾“å…¥:
 :: rum a special cmd by input number
 if  %var% EQU 0 (goto quit)
 if  %var% EQU 1 (goto control)
@@ -26,6 +28,8 @@ if  %var% EQU 4 (goto SnippingTool)
 if  %var% EQU 5 (goto regedit)
 if  %var% EQU 6 (goto diskmgmt)
 if  %var% EQU 7 (goto services)
+if  %var% EQU 8 (goto ip)
+if  %var% EQU 9 (goto hsuchan)
 :: choices
 :quit
 	exit
@@ -50,6 +54,13 @@ if  %var% EQU 7 (goto services)
 :services
 	start services.msc
 	goto end
+:ip
+   ipconfig
+   pause
+   goto end
+:hsuchan
+   start iexplore.exe http://verify-mail.hsuchan.com/
+   goto end
 :end
 	cls
 	goto begin
