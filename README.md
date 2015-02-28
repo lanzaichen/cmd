@@ -16,8 +16,10 @@
     echo 输入数字【5】打开注册表
     echo 输入数字【6】打开磁盘管理
     echo 输入数字【7】打开系统服务
+    echo 输入数字【8】查看ip地址
+    echo 输入数字【9】检查邮箱地址真实性
     echo --------------------------------------------------------------------
-    echo 版本1.0.0  2015-02-09  	如有其它需求请联系：hsuchan@hsuchan.com
+    echo 版本1.0.1 最后更新2015-02-28 如有其它需求请联系：hsuchan@hsuchan.com
     echo -------------------------Design by HsuChan--------------------------
     set /p var=请输入:
     :: rum a special cmd by input number
@@ -29,6 +31,8 @@
     if  %var% EQU 5 (goto regedit)
     if  %var% EQU 6 (goto diskmgmt)
     if  %var% EQU 7 (goto services)
+    if  %var% EQU 8 (goto ip)
+    if  %var% EQU 9 (goto hsuchan)
     :: choices
     :quit
     	exit
@@ -37,7 +41,7 @@
     	goto end
     :calc
     	start calc.exe
-    	goto end
+	goto end
     :magnify
     	start magnify.exe
     	goto end
@@ -53,7 +57,16 @@
     :services
     	start services.msc
     	goto end
+    :ip
+       ipconfig
+       pause
+       goto end
+    :hsuchan
+       start iexplore.exe http://verify-mail.hsuchan.com/
+       goto end
     :end
     	cls
     	goto begin
+ 
+    
     
